@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoyalPlay.Pages.HistoryPage"
+    BackgroundColor="#09161C"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="22,28" Spacing="15">
+
+            <Label
+                Text="GAME HISTORY"
+                TextColor="#D8B574"
+                FontSize="26"
+                FontAttributes="Bold"/>
+
+            <Label
+                Text="YOUR RECENT RESULTS"
+                TextColor="#AAB8BD"
+                FontSize="12"/>
+
+            <Label
+                x:Name="StatusLabel"
+                Text="Loading history..."
+                TextColor="#AAB8BD"
+                FontSize="13"/>
+
+            <VerticalStackLayout
+                x:Name="HistoryContainer"
+                Spacing="10"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoyalPlay.Pages.SettingsPage"
+    BackgroundColor="#09161C"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,28" Spacing="18">
+
+            <Button
+                Text="‹  PROFILE"
+                Clicked="BackButton_Clicked"
+                BackgroundColor="#213540"
+                TextColor="#D8B574"
+                HorizontalOptions="Start"
+                CornerRadius="12"/>
+
+            <Label
+                Text="SETTINGS"
+                TextColor="#D8B574"
+                FontSize="28"
+                FontAttributes="Bold"/>
+
+            <Border
+                BackgroundColor="#1B303A"
+                Stroke="#52614F"
+                StrokeShape="RoundRectangle 18"
+                Padding="20">
+
+                <VerticalStackLayout Spacing="17">
+
+                    <Label
+                        Text="GAME PREFERENCES"
+                        TextColor="#D8B574"
+                        FontSize="14"
+                        FontAttributes="Bold"/>
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <Label
+                            Text="Sound effects"
+                            TextColor="White"
+                            VerticalOptions="Center"/>
+
+                        <Switch
+                            x:Name="SoundSwitch"
+                            Grid.Column="1"
+                            Toggled="Preference_Toggled"/>
+
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <Label
+                            Text="Animations"
+                            TextColor="White"
+                            VerticalOptions="Center"/>
+
+                        <Switch
+                            x:Name="AnimationsSwitch"
+                            Grid.Column="1"
+                            Toggled="Preference_Toggled"/>
+
+                    </Grid>
+
+                    <Label
+                        Text="Preferences are stored on this device."
+                        TextColor="#AAC0C3"
+                        FontSize="12"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

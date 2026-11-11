@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Shell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:RoyalPlay.Pages"
+    x:Class="RoyalPlay.AppShell"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Shell.BackgroundColor="#0D1720"
+    Shell.ForegroundColor="#D8B574"
+    Shell.TabBarBackgroundColor="#182630"
+    Shell.TabBarForegroundColor="#D8B574"
+    Shell.TabBarUnselectedColor="#8F9FA7">
+
+    <ShellContent
+        Route="login"
+        Title="Login"
+        ContentTemplate="{DataTemplate pages:LoginPage}" />
+
+    <TabBar Route="main">
+
+        <ShellContent
+            Route="home"
+            Title="Home"
+            ContentTemplate="{DataTemplate pages:HomePage}" />
+
+        <ShellContent
+            Route="sports"
+            Title="Sports"
+            ContentTemplate="{DataTemplate pages:SportsPage}" />
+
+        <ShellContent
+            Route="history"
+            Title="History"
+            ContentTemplate="{DataTemplate pages:HistoryPage}" />
+
+        <ShellContent
+            Route="profile"
+            Title="Profile"
+            ContentTemplate="{DataTemplate pages:ProfilePage}" />
+
+    </TabBar>
+
+</Shell>

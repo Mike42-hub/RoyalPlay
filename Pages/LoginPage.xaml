@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoyalPlay.Pages.LoginPage"
+    BackgroundColor="#0D1720"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="28,45" Spacing="16">
+
+            <Label
+                Text="♠"
+                FontSize="64"
+                TextColor="#D8B574"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="ROYALPLAY"
+                FontSize="35"
+                FontAttributes="Bold"
+                TextColor="#D8B574"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="THE CARD &amp; SPORTS EXPERIENCE"
+                FontSize="11"
+                TextColor="#AAB8BD"
+                HorizontalOptions="Center"/>
+
+            <Border
+                Margin="0,20,0,0"
+                Padding="22"
+                BackgroundColor="#182630"
+                Stroke="#34444D">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label
+                        Text="Welcome Back"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="White"/>
+
+                    <Label
+                        Text="Sign in to continue playing"
+                        TextColor="#AAB8BD"/>
+
+                    <Label
+                        Text="USERNAME"
+                        FontSize="12"
+                        TextColor="#D8B574"/>
+
+                    <Entry
+                        x:Name="UsernameEntry"
+                        Placeholder="Enter your username"
+                        PlaceholderColor="#8F9FA7"
+                        TextColor="White"
+                        BackgroundColor="#263741"/>
+
+                    <Label
+                        Text="PASSWORD"
+                        FontSize="12"
+                        TextColor="#D8B574"/>
+
+                    <Entry
+                        x:Name="PasswordEntry"
+                        Placeholder="Enter your password"
+                        IsPassword="True"
+                        PlaceholderColor="#8F9FA7"
+                        TextColor="White"
+                        BackgroundColor="#263741"/>
+
+                    <Label
+                        x:Name="ErrorLabel"
+                        IsVisible="False"
+                        TextColor="#FF7777"
+                        FontSize="13"/>
+
+                    <Button
+                        Text="LOGIN"
+                        BackgroundColor="#D8B574"
+                        TextColor="#0D1720"
+                        FontAttributes="Bold"
+                        HeightRequest="52"
+                        CornerRadius="12"
+                        Clicked="LoginButton_Clicked"/>
+
+                    <Button
+                        Text="Create new account"
+                        BackgroundColor="Transparent"
+                        TextColor="#D8B574"
+                        Clicked="RegisterButton_Clicked"/>
+
+                </VerticalStackLayout>
+            </Border>
+         </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoyalPlay.Pages.RegisterPage"
+    BackgroundColor="#0D1720"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="28,35" Spacing="16">
+
+            <Label
+                Text="♠"
+                FontSize="60"
+                TextColor="#D8B574"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="ROYALPLAY"
+                FontSize="32"
+                FontAttributes="Bold"
+                TextColor="#D8B574"
+                HorizontalOptions="Center"/>
+
+            <Border
+                Margin="0,15,0,0"
+                Padding="22"
+                BackgroundColor="#182630"
+                Stroke="#34444D">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        Text="Create Account"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="White"/>
+
+                    <Label
+                        Text="USERNAME"
+                        FontSize="12"
+                        TextColor="#D8B574"/>
+
+                    <Entry
+                        x:Name="UsernameEntry"
+                        Placeholder="Choose a username"
+                        PlaceholderColor="#8F9FA7"
+                        TextColor="White"
+                        BackgroundColor="#263741"/>
+
+                    <Label
+                        Text="PASSWORD"
+                        FontSize="12"
+                        TextColor="#D8B574"/>
+
+                    <Entry
+                        x:Name="PasswordEntry"
+                        Placeholder="At least 8 characters"
+                        PlaceholderColor="#8F9FA7"
+                        IsPassword="True"
+                        TextColor="White"
+                        BackgroundColor="#263741"/>
+
+                    <Label
+                        Text="CONFIRM PASSWORD"
+                        FontSize="12"
+                        TextColor="#D8B574"/>
+
+                    <Entry
+                        x:Name="ConfirmPasswordEntry"
+                        Placeholder="Repeat password"
+                        PlaceholderColor="#8F9FA7"
+                        IsPassword="True"
+                        TextColor="White"
+                        BackgroundColor="#263741"/>
+
+                    <Label
+                        x:Name="ErrorLabel"
+                        IsVisible="False"
+                        TextColor="#FF7777"
+                        FontSize="13"/>
+
+                    <Button
+                        Text="CREATE ACCOUNT"
+                        BackgroundColor="#D8B574"
+                        TextColor="#0D1720"
+                        FontAttributes="Bold"
+                        CornerRadius="12"
+                        HeightRequest="52"
+                        Clicked="CreateAccount_Clicked"/>
+
+                    <Button
+                        Text="Back to Login"
+                        BackgroundColor="Transparent"
+                        TextColor="#D8B574"
+                        Clicked="BackToLogin_Clicked"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

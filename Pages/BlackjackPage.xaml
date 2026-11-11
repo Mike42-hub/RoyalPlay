@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoyalPlay.Pages.BlackjackPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#09161C">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16,20" Spacing="12">
+
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+
+                <Button
+                    Text="‹  LOBBY"
+                    Clicked="BackButton_Clicked"
+                    BackgroundColor="#1C303A"
+                    TextColor="#E8D4A6"
+                    FontSize="12"
+                    CornerRadius="12"/>
+
+                <Label
+                    Grid.Column="1"
+                    Text="BLACKJACK"
+                    TextColor="#E8D4A6"
+                    FontSize="23"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"/>
+
+                <Label
+                    Grid.Column="2"
+                    x:Name="BalanceLabel"
+                    Text=""
+                    TextColor="#E8D4A6"
+                    VerticalOptions="Center"
+                    FontSize="13"/>
+            </Grid>
+
+            <Border
+                Stroke="#CBA96B"
+                StrokeThickness="1"
+                BackgroundColor="#10272A"
+                StrokeShape="RoundRectangle 24"
+                Padding="6">
+
+                <Grid HeightRequest="420">
+
+                    <GraphicsView
+                        x:Name="FeltBackground"
+                        InputTransparent="True"/>
+
+                    <Grid
+                        Padding="12,23"
+                        RowDefinitions="Auto,*,Auto,*,Auto">
+
+                        <VerticalStackLayout
+                            Grid.Row="0"
+                            HorizontalOptions="Center"
+                            Spacing="7">
+
+                            <Label
+                                Text="DEALER"
+                                TextColor="#F6EBD4"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                HorizontalTextAlignment="Center"/>
+
+                            <Label
+                                x:Name="DealerValueLabel"
+                                Text="READY"
+                                TextColor="#D8B574"
+                                FontSize="12"
+                                HorizontalTextAlignment="Center"/>
+
+                            <HorizontalStackLayout
+                                x:Name="DealerCards"
+                                HorizontalOptions="Center"
+                                Spacing="3"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout
+                            Grid.Row="2"
+                            HorizontalOptions="Center"
+                            Spacing="5">
+
+                            <Label
+                                Text="ROYALPLAY   •   21"
+                                TextColor="#E8D4A6"
+                                FontSize="23"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"/>
+
+                            <Label
+                                x:Name="TableBetLabel"
+                                Text="CHOOSE YOUR BET"
+                                TextColor="#FFF6D7"
+                                FontSize="13"
+                                HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout
+                            Grid.Row="4"
+                            HorizontalOptions="Center"
+                            Spacing="6">
+
+                            <HorizontalStackLayout
+                                x:Name="PlayerCards"
+                                HorizontalOptions="Center"
+                                Spacing="3"/>
+
+                            <Label
+                                x:Name="PlayerValueLabel"
+                                Text="PLAYER"
+                                TextColor="#F6EBD4"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Label
+                x:Name="StatusLabel"
+                Text="Choose your bet and deal your first hand."
+                TextColor="#E8D4A6"
+                HorizontalTextAlignment="Center"
+                FontSize="14"/>
+
+            <Grid
+                ColumnDefinitions="*,Auto"
+                ColumnSpacing="12"
+                Padding="5,0">
+
+                <Picker
+                    x:Name="BetPicker"
+                    Title="Select bet"
+                    SelectedIndex="1"
+                    BackgroundColor="#1C303A"
+                    TextColor="White"
+                    TitleColor="#C8C5BB">
+
+                    <Picker.Items>
+                        <x:String>50</x:String>
+                        <x:String>100</x:String>
+                        <x:String>250</x:String>
+                        <x:String>500</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Button
+                    Grid.Column="1"
+                    x:Name="DealButton"
+                    Text="DEAL CARDS"
+                    Clicked="DealButton_Clicked"
+                    BackgroundColor="#D8B574"
+                    TextColor="#09161C"
+                    FontAttributes="Bold"
+                    CornerRadius="12"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+
+                <Button
+                    x:Name="HitButton"
+                    Grid.Column="0"
+                    Text="HIT"
+                    Clicked="HitButton_Clicked"
+                    BackgroundColor="#13775F"
+                    TextColor="White"
+                    CornerRadius="12"
+                    IsEnabled="False"/>
+
+                <Button
+                    x:Name="StandButton"
+                    Grid.Column="1"
+                    Text="STAND"
+                    Clicked="StandButton_Clicked"
+                    BackgroundColor="#27465B"
+                    TextColor="White"
+                    CornerRadius="12"
+                    IsEnabled="False"/>
+
+                <Button
+                    x:Name="DoubleButton"
+                    Grid.Column="2"
+                    Text="DOUBLE"
+                    Clicked="DoubleButton_Clicked"
+                    BackgroundColor="#615032"
+                    TextColor="White"
+                    CornerRadius="12"
+                    IsEnabled="False"/>
+
+            </Grid>
+
+            <Label
+                Text="Dealer stands on 17 • Blackjack pays 3:2"
+                TextColor="#9CACAA"
+                FontSize="11"
+                HorizontalTextAlignment="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

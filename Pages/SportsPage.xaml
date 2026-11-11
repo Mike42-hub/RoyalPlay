@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoyalPlay.Pages.SportsPage"
+    BackgroundColor="#09161C"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,25" Spacing="17">
+
+            <Label
+                Text="SPORTS ARENA"
+                TextColor="#D8B574"
+                FontAttributes="Bold"
+                FontSize="26"/>
+
+            <Label
+                Text="Live schedules · Match predictions · Earn XP"
+                TextColor="#AAC0C3"
+                FontSize="13"/>
+
+            <Border
+                BackgroundColor="#192C39"
+                Stroke="#4D6170"
+                StrokeShape="RoundRectangle 19"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="CHOOSE YOUR SPORT"
+                        TextColor="#D8B574"
+                        FontAttributes="Bold"
+                        FontSize="12"/>
+
+                    <Picker
+                        x:Name="SportPicker"
+                        TextColor="White"
+                        TitleColor="#AAC0C3"
+                        BackgroundColor="#294253"
+                        Title="Choose sport"
+                        SelectedIndex="0"
+                        SelectedIndexChanged="SportPicker_SelectedIndexChanged">
+
+                        <Picker.Items>
+                            <x:String>Football</x:String>
+                            <x:String>Basketball</x:String>
+                            <x:String>Tennis</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Button
+                        x:Name="RefreshButton"
+                        Text="LOAD REAL MATCHES"
+                        Clicked="RefreshButton_Clicked"
+                        BackgroundColor="#D8B574"
+                        TextColor="#0D1720"
+                        CornerRadius="12"
+                        FontAttributes="Bold"
+                        HeightRequest="50"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Label
+                x:Name="StatusLabel"
+                Text="Select a sport to load fixtures."
+                TextColor="#B9D2CF"
+                FontSize="13"/>
+
+            <VerticalStackLayout
+                x:Name="EventsContainer"
+                Spacing="12"/>
+
+            <Border
+                BackgroundColor="#192C39"
+                Stroke="#4D6170"
+                StrokeShape="RoundRectangle 19"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label
+                        Text="MY PREDICTIONS"
+                        TextColor="#D8B574"
+                        FontAttributes="Bold"
+                        FontSize="17"/>
+
+                    <Button
+                        x:Name="CheckResultsButton"
+                        Text="CHECK OFFICIAL RESULTS"
+                        Clicked="CheckResultsButton_Clicked"
+                        BackgroundColor="#28465B"
+                        TextColor="White"
+                        CornerRadius="12"/>
+
+                    <Label
+                        x:Name="PredictionStatusLabel"
+                        Text="Correct predictions earn 100 XP."
+                        FontSize="12"
+                        TextColor="#AAC0C3"/>
+
+                    <VerticalStackLayout
+                        x:Name="PredictionContainer"
+                        Spacing="9"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

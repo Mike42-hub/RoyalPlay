@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoyalPlay.Pages.PokerPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#071218">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15,18" Spacing="13">
+
+            <!-- Header -->
+            <Grid
+                ColumnDefinitions="Auto,*,Auto"
+                ColumnSpacing="8">
+
+                <Button
+                    Text="‹  LOBBY"
+                    Clicked="BackButton_Clicked"
+                    BackgroundColor="#192B37"
+                    TextColor="#E9C789"
+                    FontSize="12"
+                    CornerRadius="12"/>
+
+                <VerticalStackLayout
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    Spacing="0">
+
+                    <Label
+                        Text="♠  ROYAL POKER"
+                        TextColor="#E8C889"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"/>
+
+                    <Label
+                        Text="TEXAS HOLD'EM"
+                        TextColor="#9DB4B3"
+                        FontSize="10"
+                        HorizontalTextAlignment="Center"/>
+
+                </VerticalStackLayout>
+
+                <Border
+                    Grid.Column="2"
+                    BackgroundColor="#1B3440"
+                    Stroke="#AB8E55"
+                    StrokeShape="RoundRectangle 13"
+                    Padding="10,8">
+
+                    <Label
+                        x:Name="BalanceLabel"
+                        Text="0 ♛"
+                        TextColor="#F0D39A"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"/>
+                </Border>
+            </Grid>
+
+            <!-- Table setup -->
+            <Border
+                BackgroundColor="#172B35"
+                Stroke="#445965"
+                StrokeShape="RoundRectangle 15"
+                Padding="10,7">
+
+                <Grid
+                    ColumnDefinitions="*,Auto"
+                    ColumnSpacing="10">
+
+                    <Picker
+                        x:Name="OpponentPicker"
+                        Title="Computer players"
+                        SelectedIndex="0"
+                        BackgroundColor="#172B35"
+                        TextColor="White"
+                        TitleColor="#AFC7C4">
+
+                        <Picker.Items>
+                            <x:String>1 computer</x:String>
+                            <x:String>2 computers</x:String>
+                            <x:String>3 computers</x:String>
+                        </Picker.Items>
+
+                    </Picker>
+
+                    <Button
+                        Grid.Column="1"
+                        x:Name="NewHandButton"
+                        Text="DEAL HAND"
+                        Clicked="NewHandButton_Clicked"
+                        BackgroundColor="#E4C184"
+                        TextColor="#111F27"
+                        FontAttributes="Bold"
+                        CornerRadius="10"/>
+
+                </Grid>
+            </Border>
+
+            <!-- Poker table -->
+            <Border
+                x:Name="TableFrame"
+                BackgroundColor="#102321"
+                Stroke="#A4814E"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 35"
+                Padding="5">
+
+                <Grid HeightRequest="455">
+
+                    <GraphicsView
+                        x:Name="FeltBackground"
+                        InputTransparent="True"/>
+
+                    <Grid
+                        Padding="20,28"
+                        RowDefinitions="Auto,*,Auto,*,Auto">
+
+                        <!-- CPU opponents -->
+                        <VerticalStackLayout
+                            Grid.Row="0"
+                            Spacing="7">
+
+                            <Label
+                                Text="YOUR OPPONENTS"
+                                TextColor="#D7C69C"
+                                FontSize="10"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"/>
+
+                            <HorizontalStackLayout
+                                x:Name="OpponentSeats"
+                                HorizontalOptions="Center"
+                                Spacing="4"/>
+
+                        </VerticalStackLayout>
+
+                        <!-- Pot and community cards -->
+                        <VerticalStackLayout
+                            Grid.Row="2"
+                            HorizontalOptions="Center"
+                            Spacing="7">
+
+                            <Border
+                                BackgroundColor="#143C31"
+                                Stroke="#BCA16B"
+                                StrokeShape="RoundRectangle 18"
+                                Padding="14,6"
+                                HorizontalOptions="Center">
+
+                                <HorizontalStackLayout Spacing="7">
+
+                                    <Label
+                                        Text="●"
+                                        TextColor="#E8C889"
+                                        FontSize="17"/>
+
+                                    <Label
+                                        x:Name="PotLabel"
+                                        Text="POT 0"
+                                        TextColor="#F8E4B1"
+                                        FontAttributes="Bold"
+                                        FontSize="16"/>
+
+                                </HorizontalStackLayout>
+                            </Border>
+
+                            <HorizontalStackLayout
+                                x:Name="CommunityCards"
+                                HorizontalOptions="Center"
+                                Spacing="0"/>
+
+                            <Label
+                                x:Name="RoundLabel"
+                                Text="READY"
+                                TextColor="#F0DFC5"
+                                FontSize="11"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"/>
+
+                        </VerticalStackLayout>
+
+                        <!-- Human player -->
+                        <VerticalStackLayout
+                            Grid.Row="4"
+                            HorizontalOptions="Center"
+                            Spacing="7">
+
+                            <HorizontalStackLayout
+                                x:Name="MyCards"
+                                HorizontalOptions="Center"
+                                Spacing="4"/>
+
+                            <Label
+                                Text="YOU  •  PLAYER 1"
+                                TextColor="#F6DFC3"
+                                FontAttributes="Bold"
+                                FontSize="12"
+                                HorizontalTextAlignment="Center"/>
+
+                        </VerticalStackLayout>
+
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Computer actions -->
+            <Border
+                BackgroundColor="#1B333C"
+                Stroke="#415D60"
+                StrokeShape="RoundRectangle 13"
+                Padding="13,10">
+
+                <VerticalStackLayout Spacing="4">
+
+                    <Label
+                        x:Name="ActionLabel"
+                        Text="Welcome to Royal Poker"
+                        TextColor="#E7C78D"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"/>
+
+                    <Label
+                        x:Name="StatusLabel"
+                        Text="Choose opponents and deal a hand."
+                        TextColor="#DFEAE1"
+                        FontSize="13"
+                        HorizontalTextAlignment="Center"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Player actions -->
+            <Grid
+                ColumnDefinitions="*,*,*"
+                ColumnSpacing="8">
+
+                <Button
+                    x:Name="FoldButton"
+                    Grid.Column="0"
+                    Text="FOLD"
+                    Clicked="FoldButton_Clicked"
+                    BackgroundColor="#A34A4A"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="13"
+                    IsEnabled="False"/>
+
+                <Button
+                    x:Name="CallButton"
+                    Grid.Column="1"
+                    Text="CHECK"
+                    Clicked="CallButton_Clicked"
+                    BackgroundColor="#2B6476"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="13"
+                    IsEnabled="False"/>
+
+                <Button
+                    x:Name="RaiseButton"
+                    Grid.Column="2"
+                    Text="BET 40"
+                    Clicked="RaiseButton_Clicked"
+                    BackgroundColor="#167F61"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="13"
+                    IsEnabled="False"/>
+
+            </Grid>
+
+            <Label
+                Text="Offline table · fixed-limit strategy · 20-chip ante"
+                TextColor="#819C9A"
+                HorizontalTextAlignment="Center"
+                FontSize="11"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
